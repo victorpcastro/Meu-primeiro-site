@@ -1,0 +1,54 @@
+div.wrap {
+	text-align: center;
+}
+div.pagesize {
+	width: 779px;
+	-width:850px;
+	margin: 0 auto;
+	text-align: left;
+}
+#mainwrap {
+	position: relative;
+	background: url(../images/header_bg.jpg) center top no-repeat;
+}
+
+#spl-wrap {
+	background: #000000 url(../images/spl-bg.gif) left top repeat-x;
+	color: #fff;
+}
+
+div.spl-box {
+	float: left;
+	margin: 20px;
+	margin-right: 0;
+}
+
+#spl #comments {	
+	width: 204px;
+}
+
+#spl #archives {
+	width: 141px;
+}
+
+#spl #myprofile {
+	width: 150px;
+}
+
+#spl #tag-cloud {
+	width: 181px;
+}
+
+.spl-box h2 {
+	font-family: Tahoma;
+	font-size: 20px;
+	color: #fff;
+	font-weight: normal;
+	background: url(../images/h2.gif) left bottom repeat-x;
+	padding-bottom: 8px;
+	float: left;
+}
+
+spl-box .box-content {
+	clear: both;
+}
