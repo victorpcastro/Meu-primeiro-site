@@ -1,0 +1,179 @@
+html,body {
+	margin: 0;
+	padding: 0;
+}
+* {
+	box-sizing:border-box
+}
+
+ul.topnav {
+     list-style-type: none;
+    margin: 0;
+    width: 100%;
+    position: fixed;
+    top: 0%;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    border-bottom: 1px solid #cfcece;
+    z-index: 1;
+    display: inline-block;
+}
+
+ul.topnav li {float: right;
+	padding: 0.6% 2% 0 2%;
+
+}
+
+ul.topnav li a {
+	display: block;
+	color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+	padding: 0 15% 0 15%;
+	text-decoration: none;
+}
+
+ul.topnav .menu{
+	width: 20px;
+	height: 20px;
+	padding-left: 93%;
+	padding-top: 50px;
+	padding-right: 20px;
+	display: none;
+  }
+
+ul.topnav .dropdown_menu{
+	display: none;
+	position: fixed;
+	background-color: #f9f9f9;
+	width: 18%;
+	height: 200px ;
+	top: 50px;
+	left: 75%;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 3;
+}
+
+ul.topnav #dropdown_menu a{
+	color: black;
+	padding: 1px 0 1px 0 ;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+}
+
+ul.topnav li a:hover {
+	color: rgb(254, 190, 0);
+}
+
+ul.topnav li a.actives{
+	color: rgb(254, 190, 0);
+	background-color: rgb(0, 0, 0);
+}
+
+ul.topnav li.right {
+	float: right;
+}
+
+
+#blocoGaleria{
+	top: 10px;   
+	left: 4%;
+	right: 4%;      
+	height: auto;
+	width: 92%;
+	position: absolute;
+}
+
+.titulos{        
+	height: 45px;
+	position: relative;
+	border-bottom: 0.5px solid #dbdada;
+}
+
+#galeria{
+	margin-top: 4%;
+	height: auto;
+	position: relative;
+}
+
+.fotos{
+    margin-bottom: 40px;
+    
+	position: relative;
+}
+
+img, p , h2{
+    display: inline-block;
+}
+img,p, h2{
+    float: left;
+}
+  
+.textorep{
+    width: 500px; 
+    height: 200px; 
+    margin-top:0px;
+    margin-left: 350px;
+}
+.textorep h2{
+    margin: 0;
+}
+input[type=submit] {
+	background-color: #000000;
+	color: white;
+	padding: 12px 0px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+    float: left;
+    width: 150px;
+    margin-top: 55px;
+}
+
+
+
+
+/* texto dentro do rodapé */
+.texto{
+	margin-top:0;
+}
+
+/* div rodapé */
+ul.rodape {
+  list-style-type:none;
+  position: absolute;
+  top: 2200px;
+  bottom:0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 60px;
+  padding-inline-start: 0px;
+  background-color: rgb(254, 190, 0);
+  overflow: hidden;
+}
+
+/* bloco dentro do rodapé */
+li.rodape {
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 8px 16px;
+  float: left;
+  text-decoration: none;
+}
+
+@media (max-width: 950px) {
+	ul.topnav .menu{
+	  display: block;
+	}
+	ul.topnav li a{
+	  display: none;
+    }
+    .fotos{
+        width: 33.3%;
+    }
+}

@@ -1,394 +1,236 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Tem Vaga Aí?</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tem Vaga Aí?</title>
+    <link rel="stylesheet" type="text/css" href="folha_estilo.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* div do slideshow automatico*/
+        .slider {
+          width: 360px;
+          height: 400px;
+          top: 400px;
+          left: 980px;
+          margin: 0;
+          overflow: hidden; 
+          position: absolute;
+        }
 
-          body {
-            margin: 0;
-            padding: 0;
-          }
+        /* posicao da imagem dentro da div*/
+        .slider-wrapper {
+          width: 100%;
+          height: 400px;
+          position: relative;
+          overflow: hidden; 
+        }
 
-          html,body {
-            margin: 0;
-            padding: 0;
-          }
-
-          .textoPuro{
-            top: 400px;
-            height: 500px;
-            width: 700px;
-            position:absolute;
-            text-align: justify;
-          }
-
-          .email{
-            position: absolute;
-            width: 400px;
-            height: 500px;
-            left: 900px;
-            top: 1000px;
-            background-color: rgb(194, 193, 193);
-            border-radius: 5px;
-            padding: 20px;
-            overflow: hidden;
-          }
-
-          input[type=text], select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-          }
-
-          label {
-            padding: 12px 12px 12px 0;
-            display: inline-block;
-          }
-
-          input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
-          }
-
-          input[type=submit]:hover {
-            background-color: #45a049;
-          }
-          .col-25 {
-            float: left;
-            width: 25%;
-            margin-top: 6px;
-          }
-
-          .col-75 {
-            float: left;
-            width: 75%;
-            margin-top: 6px;
-          }
-
-          /* Clear floats after the columns */
-          .row:after {
-            content: "";
-            display: table;
-            clear: both;
-          }
-
-          .popup{
-            position: fixed;
-            margin: 100px 350px;
-            width: 600px;
-            height: 300px;
-            padding: 15px;
-            border: solid 1px  rgb(10, 10, 10) ;
-            background-color:  rgb(254, 190, 0,0.8);
-            display:none ;
-            z-index: 1;
-          }
-          .closePopUp{
-            position: relative;
-            float: right;
-            margin: 2px 2px;
-          }
-
-          /* div do slideshow automatico*/
-          .slider {
-            width: 360px;
-            height: 400px;
-            top: 400px;
-            left: 980px;
-            margin: 0;
-            overflow: hidden; 
-            position: absolute;
-          }
-
-          /* posicao da imagem dentro da div*/
-          .slider-wrapper {
-            width: 100%;
-            height: 400px;
-            position: relative;
-            overflow: hidden; 
-          }
-
-          /* tamanho e controle da imagem no slideshow automatico*/
-          .slide {
-            float: left;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 3s linear;
-          }
-          /* opacidade da imagem que está sendo mostrada */
-          .slider-wrapper > .slide:first-child {
-            opacity: 1;
-          }
-
-            * {box-sizing:border-box}
-
-            /* div do slideshow*/
-            .slideshow-container {
-              width: 1350px;
-              top: 100px;
-              position: absolute;
-              margin: 0 0;
-              overflow: hidden;
-            }
-
-            /* esconder as imagens que não estão selecionadas*/
-            .mySlides {
-              display: none;
-            }
-
-            /* botão de voltar e avançar */
-            .prev, .next {
-              cursor: pointer;
-              position: absolute;
-              top: 50%;
-              width: auto;
-              margin-top: -22px;
-              padding: 16px;
-              color: white;
-              font-weight: bold;
-              font-size: 18px;
-              transition: 0.6s ease;
-              border-radius: 0 3px 3px 0;
-              user-select: none;
-            }
-
-            /* posicao do botao de voltar e avançar imagem */
-            .next {
-              right: 0;
-              border-radius: 3px 0 0 3px;
-            }
-
-            /* background do botao de avançar e voltar imagem quando o mouse passa */
-            .prev:hover, .next:hover {
-              background-color: rgb(254, 190, 0);
-            }
-
-            /* legenda da imagem 
-            .text {
-              color: #f2f2f2;
-              font-size: 15px;
-              padding: 1px 12px;
-              position: absolute;
-              bottom: 30px;
-              width: 100%;
-              text-align: center;
-            }
-            */
-
-            /* numero da imagem */
-            .numbertext {
-              color: #f2f2f2;
-              font-size: 12px;
-              padding: 8px 12px;
-              position: absolute;
-              top: 0;
-            }
-
-            .divdot{
-              text-align: center;
-              top: 360px;
-              left: 670px;
-              position:absolute;
-            }
-
-            /* indicador de slide das imagens */
-            .dot {
-              cursor: pointer;
-              height: 15px;
-              width: 15px;
-              top: 710px;
-              background-color: #bbb;
-              border-radius: 50%;
-              display: inline-block;
-              transition: background-color 0.6s ease;
-            }
-
-            /* background do indicador de slide das imagens quando ativo ou com mouse em cima */
-            .active, .dot:hover {
-              background-color: rgb(254, 190, 0);
-            }
-
-            /* animação da imagem aparecendo*/
-            .fade {
-              -webkit-animation-name: fade;
-              -webkit-animation-duration: 5.5s;
-              animation-name: fade;
-              animation-duration: 5.5s;
-            }
-
-            @-webkit-keyframes fade {
-              from {opacity: .4}
-              to {opacity: 1}
-            }
-
-            @keyframes fade {
-              from {opacity: .4}
-              to {opacity: 1}
-            }
-
-            /* texto dentro do rodapé */
-            .texto{
-                margin-top:0;
-            }
-
-            /* div rodapé */
-            ul.rodape {
-              list-style-type:none;
-              position: absolute;
-              top: 1560px;
-              bottom:0;
-              margin: 0;
-              padding: 0;
-              width: 1350px;
-              height: 60px;
-              padding-inline-start: 0px;
-              background-color: rgb(254, 190, 0);
-              overflow: hidden;
-            }
-
-            /* bloco dentro do rodapé */
-            li.rodape {
-              display: block;
-              color: #000;
-              text-align: center;
-              padding: 8px 16px;
-              float: left;
-              text-decoration: none;
-            }
+        /* tamanho e controle da imagem no slideshow automatico*/
+        .slide {
+          float: left;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transition: opacity 3s linear;
+        }
+  
+        /* opacidade da imagem que está sendo mostrada */
+        .slider-wrapper > .slide:first-child {
+          opacity: 1;
+        }
               
-            .imagemContatos{
-              float: right;
-              margin:10px 30px 20px 30px;
-            }
-
-            ul.topnav {
-              list-style-type: none;
-              margin: 0;
-              width: 1350px;
-              position: fixed;
-              top: 0px;
-              padding: 0;
-              overflow: hidden;
-              background-color: rgb(255, 253, 253);
-              border: 1px solid #cfcece;
-              z-index: 1;
-            }
-
-            ul.topnav li {float: right;
-              padding: 20px 10px 0 20px;
-            }
-
-            ul.topnav li a {
-              display: block;
-              color: rgb(5, 5, 5);
-              text-align: center;
-              padding: 0px 20px 0 20px;
-              text-decoration: none;
-            }
-
-            ul.topnav li a:hover {color: rgb(254, 190, 0);}
-
-            ul.topnav li a.actives{
-              color: rgb(254, 190, 0);
-              background-color: rgb(255, 255, 255);
-            }
-
-            ul.topnav li.right {float: right;}
+        .imagemContatos{
+            float: right;
+            margin:10px 30px 20px 30px;
+        }
 
         </style>
     </head>
     <body>
-    <div id="popup" class="popup">
-      <p class="closePopUp"><a href="#close" onclick="ToggleSearchBar()">X</a></p> 
-    </div>
-    <ul class="topnav">
-      <li style="float: left;"><img src="imagens\logo.png" ></li>
-      <li style="float: left; padding: 20px 10px ;"><h3>Tem Alguém Ai?</h3></li>
-      <li style="margin-right: 70px;" class="right"><a href="#about"><h4>About</h4></a></li>
-      <li><a href="#contact"> <h4>Contato</h4></a></li>
-      <li><a href="#news"><h4>News</h4></a></li>
-      <li><a class="actives" href="#home"><h4>Home</h4></a></li>
-      <li style="float:right; padding: 0; margin: 40px 20px 30px 0;"><img src="imagens\lupa.png" ></li>
-      <li style=" width: 190px; padding: 40px 0px 20px 0; margin: 0px 0;"><a>
-        <input type="text" id="nome" />
-      </a> </li>
-    </ul>
-    
-    !-- Slideshow container -->
-    <div class="slideshow-container">
-
-      <!-- Full-width images with number and caption text -->
-      <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="imagens\imagem1.png" width:200% height:100% >
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="imagens\imagem2.png" width:100% height:100% >
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="imagens\imagem3.png" width:100% height:100%  >
-      </div>
-      
-
-      <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <br>
-    <!-- The dots/circles -->
-    <div class="divdot">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-    <div class="slider" id="main-slider"><!-- outermost container element -->
-      <figure>
-        <div class="slider-wrapper"><!-- innermost wrapper element -->
-          <img src="http://lorempixel.com/1024/400/animals" alt="First" class="slide" /><!-- slides -->
-          <img src="http://lorempixel.com/1024/400/business" alt="Second" class="slide" />
-          <img src="http://lorempixel.com/1024/400/city" alt="Third" class="slide" />
+      <ul class="topnav">
+        <li style="float: left; padding: 8px;"><img src="imagens\logo.png" ></li>
+        <li style="float: left; padding: 20px 0px 20px 10px ;"><h3 style="color: white;">Tem Alguém Ai?</h3></li>
+        <li style="margin-right: 10px;"><a href="#about"><p>About</p></a></li>
+        <li><a href="#contact"> <p>Contato</p></a></li>
+        <li><a href="#news"><p>News</p></a></li>
+        <li><a class="actives" href="#home"><p>Home</p></a></li>
+        <li style=" padding: 0; margin: 38px 20px 30px 0;"><a href="pesquisar"><img src="imagens\lupa.png" ></a></li>
+        <li style=" width: 175px; padding: 32px 0px 20px 0; margin: 0px 0;"><a>
+          <input style="height: 20px; width: 100%;" type="text" id="nome" />
+        </a> </li>
+        <div class="menu">
+          <a href="menu"><img src="imagens\lupa.png"></a>
         </div>
-        <figcaption style="text-align: justify;">
-          muito Legal a república Macaúba, ótima localizaçõa e a galera é muito maneira e gente boa!
-        </figcaption>
-      </figure>
-    </div>  
-    <div class="textoPuro">
-      <h2>
-          A cada reunião, são discutidas as ideias 
-          o texto do autor/da autora com base em discussões ou em análise 
-          de textos enviados previamente. A tutoria funciona como um coaching literário, 
-          a equipe é composta de três pessoas que atuam como ajudantes, mentoras, guias - tutoras.
-          O auxílio ao autor/à autora é feito pela sugestão de alterações e fornecimento de opinião
-          profissional sobre escolhas linguísticas e textuais. A análise do texto ou das ideias é feita 
-          em detalhes pela equipe e o feedback é fornecido com o objetivo de auxiliar o escritor/a escritora 
-          a construir sua obra.
-          A cada reunião, são discutidas as ideias 
-          o texto do autor/da autora com base em discussões ou em análise 
-          de textos enviados previamente. A tutoria funciona como um coaching literário, 
-          a equipe é composta de três pessoas que atuam como ajudantes, mentoras, guias - tutoras.
-          O auxílio ao autor/à autora é feito pela sugestão de alterações e fornecimento de opinião
-          profissional sobre escolhas linguísticas e textuais. A análise do texto ou das ideias é feita 
-          em detalhes pela equipe e o feedback é fornecido com o objetivo de auxiliar o escritor/a escritora 
-          a construir sua obra.
-      </h2>
-    </div>
-    <div class="email">
+        <div class="dropdown_menu">
+          <a  href="#home"><p>Home</p></a>
+          <a  href="#contact"><p>Contact</p></a>
+          <a  href="#news"><p>News</p></a>
+          <a  href="#about"><p>About</p></a>
+        </div>
+      </ul>
+
+      <div id="popup" class="popup">
+        <p class="closePopUp"><a href="#close" onclick="ToggleSearchBar()">X</a></p> 
+      </div>
+
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="imagens\imagem1.png" width:100% height:100% >
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="imagens\imagem2.png" width:100% height:100% >
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="imagens\imagem3.png" width:100% height:100%  >
+        </div>
+        
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <br>
+
+      <!-- The dots/circles -->
+      <div class="divdot">
+        <div class="dot" onclick="currentSlide(1)"></div>
+        <div class="dot" onclick="currentSlide(2)"></div>
+        <div class="dot" onclick="currentSlide(3)"></div>
+      </div>
+
+      <div id="blocoGaleria">
+        <div class="titulos">
+          <h3>Galeria</h3>
+        </div>
+        <div id="galeria">
+          <div class="fotos">
+            <img src="imagens/house3.jpg" alt="" width="100%" height="100%">
+            <div class="divtextofotos">
+              <div class="textofotos">
+                Barn House
+              </div>
+            </div>
+          </div>
+          <div class="fotos">
+            <img src="imagens/house3.jpg" alt="" width="100%" height="100%">
+            <div class="divtextofotos">
+              <div class="textofotos">
+                Galeria
+              </div>
+            </div>
+          </div>
+          <div class="fotos">
+            <img src="imagens/house3.jpg" alt="" width="100%" height="100%">
+            <div class="divtextofotos">
+              <div class="textofotos">
+                galeria
+              </div>
+            </div>
+          </div>
+          <div class="fotos">
+            <img src="imagens/house3.jpg" alt="" width="100%" height="100%">
+            <div class="divtextofotos">
+              <div class="textofotos">
+                galeria
+              </div>
+            </div>
+          </div>
+          <div class="fotos" >
+            <img src="imagens/house3.jpg" alt="" width="100%" height="100%">
+            <div class="divtextofotos">
+              <div class="textofotos">
+                galeria
+              </div>
+            </div>
+          </div>
+          <div class="fotos">
+            <img src="imagens/house3.jpg" alt="" width="100%" height="100%">
+            <div class="divtextofotos">
+              <div class="textofotos">
+                galeria
+              </div>
+            </div>
+          </div>
+          <div class="fotos">
+            <img src="imagens/house3.jpg" alt="" width="100%" height="100%">
+            <div class="divtextofotos">
+              <div class="textofotos">
+                galeria
+              </div>
+            </div>
+          </div>
+          <div class="fotos">
+            <img src="imagens/house3.jpg" alt="" width="100%" height="100%">
+            <div class="textofotos"> 
+              <div class="divtextofotos">
+                <div class="textofotos">
+                  galeria
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="blocoAbout">
+        <div class="titulos">
+          <h3>Sobre</h3>
+        </div>
+          <div id="textoAbout">
+            A cada reunião, são discutidas as ideias 
+            o texto do autor/da autora com base em discussões ou em análise 
+            de textos enviados previamente. A tutoria funciona como um coaching literário, 
+            a equipe é composta de três pessoas que atuam como ajudantes, mentoras, guias - tutoras.
+            O auxílio ao autor/à autora é feito pela sugestão de alterações e fornecimento de opinião
+            profissional sobre escolhas linguísticas e textuais. A análise do texto ou das ideias é feita 
+            em detalhes pela equipe e o feedback é fornecido com o objetivo de auxiliar o escritor/a escritora 
+            a construir sua obra.
+            A cada reunião, são discutidas as ideias 
+            o texto do autor/da autora com base em discussões ou em análise 
+            de textos enviados previamente. A tutoria funciona como um coaching literário, 
+            a equipe é composta de três pessoas que atuam como ajudantes, mentoras, guias - tutoras.
+            O auxílio ao autor/à autora é feito pela sugestão de alterações e fornecimento de opinião
+            profissional sobre escolhas linguísticas e textuais. A análise do texto ou das ideias é feita 
+            em detalhes pela equipe e o feedback é fornecido com o objetivo de auxiliar o escritor/a escritora 
+            a construir sua obra.
+          </div>
+            <div class="fotoAbout">
+              <div class="icon">
+                <img style="padding-right: 6%;" src="https://miro.medium.com/max/8000/1*ciLg4-fezXdbaunhk1E6gQ.jpeg" alt="" width="100%">
+                <div style="padding-right: 6%;">
+                  <h2 style="margin: 0;">Victor Paiva </h2>
+                  <p>estudante</p>
+                </div>
+              </div>
+            </div>
+            <div class="fotoAbout">
+              <div class="icon">
+                <img style="padding-right: 3%; padding-left: 3%;" src="https://miro.medium.com/max/8000/1*ciLg4-fezXdbaunhk1E6gQ.jpeg" alt="" width="100%">
+                <div style="padding-left: 3%; padding-right: 3%;">
+                  <h2 style="margin: 0;">Thiago Ferreira </h2>
+                  <p>estudante</p>
+                </div>
+              </div>
+            </div>
+            <div class="fotoAbout">
+              <div class="icon">
+                <img style="padding-left: 6%;" src="https://miro.medium.com/max/8000/1*ciLg4-fezXdbaunhk1E6gQ.jpeg" alt="" width="100%">
+                <div style="padding-left: 6%;">
+                  <h2 style="margin: 0;">Henrique Thalisson</h2>
+                  <p>estudante</p>
+                </div>
+              </div>
+            </div>
+      </div>
+      <div class="email">
+        <div class="contato"><h2>Contato</h2></div>
         <div class="row">
           <div class="col-25">
             <label for="fname">First Name</label>
@@ -422,43 +264,38 @@
             <label for="subject">Subject</label>
           </div>
           <div class="col-75">
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:70px"></textarea>
           </div>
         </div>
         <div class="row">
           <input type="submit" value="Submit">
         </div>
       </div>
-    <div style="padding:0 16px;">
-      <!-- corpo do texto-->
-    </div>
-    <section>
-        <div>
-            <Ul class = "rodape">
-                <li class = "rodape" ><p class = texto>Empresa</p>
-                </li>
-                <li class = "rodape"> <p class = texto>Contatos</p>
-                </li>
-                <li class = "rodape"><p class = texto>Endereço</p>
-                </li>
-            </Ul>
-        </div>
-    </section>
-     
+      <Ul class = "rodape">
+      <li class = "rodape" >
+        <p class = texto>Empresa</p>
+      </li>
+      <li class = "rodape"> 
+        <p class = texto>Contatos</p>
+      </li>
+      <li class = "rodape">
+       <p class = texto>Endereço</p>
+        </li>
+      </Ul>
+    </body>   
 
 
     <script >
       ToggleSearchBar();
-       function ToggleSearchBar() {
-          var searchbar = document.getElementById("popup");
-          var display = getComputedStyle(searchbar).display;
-          if (display == "none") {
-                searchbar.style.display = "block";
-            } else {
-                searchbar.style.display = "none";
-            }
-
+      function ToggleSearchBar() {
+        var searchbar = document.getElementById("popup");
+        var display = getComputedStyle(searchbar).display;
+        if (display == "none") {
+          searchbar.style.display = "block";
+        } else {
+          searchbar.style.display = "none";
         }
+      }
 
       //início bloco slide de imagens por botão
       var slideIndex = 1;
@@ -540,14 +377,10 @@
             }, false);
           }         
         };
-        
+    
         document.addEventListener( "DOMContentLoaded", function() {
-          
           var slider = new Slideshow( "#main-slider" );
-          
-        });
-        
-        
+        });  
       })();
       //fim do bloco slideshow de imagem automático
 
@@ -596,7 +429,6 @@
             }
         );
     }
-
-      </script>
-    </body>
+    </script>
+  </body>
 </html>
