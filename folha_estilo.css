@@ -1,7 +1,14 @@
+@font-face {
+	font-family: gotham;
+	src: url(gotham.otf);
+}
+
 html,body {
 	margin: 0;
 	padding: 0;
+	font-family: sans-serif;
 }
+
 * {
 	box-sizing:border-box
 }
@@ -9,30 +16,38 @@ html,body {
 ul.topnav {
      list-style-type: none;
     margin: 0;
-    width: 100%;
+	width: 100%;
+	height: 50px;
     position: fixed;
     top: 0%;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(0, 0, 0);
-    border-bottom: 1px solid #cfcece;
+	background-color: #009b7c;
     z-index: 1;
     display: inline-block;
 }
 
 ul.topnav li {float: right;
-	padding: 0.6% 2% 0 2%;
-
+	margin-top: 15px;
 }
 
 ul.topnav li a {
 	display: block;
 	color: rgb(255, 255, 255);
+	width: 100px;
     text-align: center;
-    font-size: 25px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-	padding: 0 15% 0 15%;
+	margin: 0;
 	text-decoration: none;
+}
+ul.topnav li a p{
+	margin: 0 5%;
+	font-family: gotham;
+	font-size: 15px;
+}
+
+ul.topnav li h3{
+	color: white;
+	margin: 0;
 }
 
 ul.topnav .menu{
@@ -40,7 +55,6 @@ ul.topnav .menu{
 	height: 20px;
 	padding-left: 93%;
 	padding-top: 50px;
-	padding-right: 20px;
 	display: none;
   }
 
@@ -58,28 +72,27 @@ ul.topnav .dropdown_menu{
 
 ul.topnav #dropdown_menu a{
 	color: black;
-	padding: 1px 0 1px 0 ;
 	text-align: center;
 	text-decoration: none;
 	display: block;
 }
 
 ul.topnav li a:hover {
-	color: rgb(254, 190, 0);
+	color: rgb(0, 210, 168);
 }
+
+
 
 ul.topnav li a.actives{
-	color: rgb(254, 190, 0);
-	background-color: rgb(0, 0, 0);
-}
-
-ul.topnav li.right {
-	float: right;
+	color:  rgb(0, 210, 168);
+	background-color: #009b7c;
+	margin-right: 0px;
 }
 
 /* div do slideshow*/
 .slideshow-container {
-	top: 103px;
+	top: 50px;
+	width: 100%;
 	position: absolute;
 	margin: 0 0;
 	overflow: hidden;
@@ -114,7 +127,7 @@ ul.topnav li.right {
 
 /* background do botao de avançar e voltar imagem quando o mouse passa */
 .prev:hover, .next:hover {
-	background-color: rgb(254, 190, 0);
+	background-color:  #009b7c;
 }
 
 /* numero da imagem */
@@ -127,7 +140,7 @@ ul.topnav li.right {
 }
 
 .divdot{
-	top: 370px;
+	top: 530px;
 	left: 50%;
 	width: 60px;
 	margin-left: -30px;
@@ -139,7 +152,7 @@ ul.topnav li.right {
 	cursor: pointer;
 	height: 15px;
 	width: 15px;
-	top: 710px;
+	top: 1310px;
 	background-color: #bbb;
 	border-radius: 50%;
 	display: inline-block;
@@ -148,7 +161,7 @@ ul.topnav li.right {
 
 /* background do indicador de slide das imagens quando ativo ou com mouse em cima */
 .active, .dot:hover {
-	background-color: rgb(254, 190, 0);
+	background-color: rgb(0, 210, 168);
 }
 
 /* animação da imagem aparecendo*/
@@ -170,7 +183,7 @@ ul.topnav li.right {
 }  
 
 #blocoGaleria{
-	top: 400px;   
+	top: 600px;   
 	left: 4%;
 	right: 4%;      
 	height: auto;
@@ -197,6 +210,27 @@ ul.topnav li.right {
 	padding-bottom: 20px;
 	position: relative;
 	float: left;
+	display:block;
+	
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0px;
+	right: 0px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 20px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: .5s ease;
+}
+
+.fotos:hover .overlay {
+	opacity: 1;
 }
 
 .divtextofotos{
@@ -217,7 +251,7 @@ ul.topnav li.right {
 }
 
 .blocoAbout{
-	top:1000px;    
+	top:1340px;    
 	left: 4%;
 	right: 4%;         
 	height: auto;
@@ -237,7 +271,7 @@ ul.topnav li.right {
 	width: 33%;
 	margin:0 auto ;
 	position: relative;
-	top: 300px;
+	top: 260px;
 	float: left;
 }
 
@@ -249,14 +283,15 @@ ul.topnav li.right {
 .email{
 	position: absolute;
 	width: 92%;
-	height: 350px;
+	height: 500px;
 	left: 4%;
-	top: 2000px;
+	top: 2340px;
 	background-color: rgb(255, 255, 255);
 	border-radius: 5px;
 	padding: 20px;
 	overflow: hidden;
 }
+
 
 input[type=text], select, textarea {
 	width: 100%;
@@ -282,7 +317,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-	background-color: #45a049;
+	background-color:  #009b7c;
 }
 
 .col-25 {
@@ -296,6 +331,15 @@ input[type=submit]:hover {
 	float: left;
 	width: 75%;
 	margin-top: 6px;
+}
+
+#fnotific:hover{
+	-ms-transform: scale(2); /* IE */
+	-moz-transform: scale(2); /* FF */
+	-webkit-transform: scale(2); /* Safari and Chrome */
+	-o-transform: scale(2); /* Opera */
+	transform: scale(2);
+	padding: 10px;
 }
 
 /* Clear floats after the columns */
@@ -313,8 +357,8 @@ input[type=submit]:hover {
 	height: 300px;
 	padding: 15px;
 	border: solid 1px  rgb(10, 10, 10) ;
-	background-color:  rgb(254, 190, 0,0.8);
-	display:none ;
+	background-color:   #009b7c;
+	display:none;
 	z-index: 2;
 }
 
@@ -333,14 +377,14 @@ input[type=submit]:hover {
 ul.rodape {
   list-style-type:none;
   position: absolute;
-  top: 2400px;
+  top: 2840px;
   bottom:0;
   margin: 0;
   padding: 0;
   width: 100%;
   height: 60px;
   padding-inline-start: 0px;
-  background-color: rgb(254, 190, 0);
+  background-color:  #009b7c;
   overflow: hidden;
 }
 

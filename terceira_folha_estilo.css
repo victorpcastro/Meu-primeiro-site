@@ -3,12 +3,13 @@
 	src: url(gotham.otf);
 }
 
+
+
 html,body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
 }
-
 * {
 	box-sizing:border-box
 }
@@ -95,31 +96,54 @@ input[type=text], select, textarea {
 	resize: vertical;
 }
 
-#blocoGaleria{
-	top: 50px;   
-	left: 4%;
-	right: 4%;      
-	height: auto;
-	width: 92%;
+.titulofoto{
+	top:95px;
+	left:150px;
+	position: absolute;
+}
+.fotos{
+	top: 150px;
+	left: 150px;
+	width: 790px;
+	position: absolute;
+}
+.fotos1{
+	top: 150px;
+	left: 955px;
+	width: 400px;
 	position: absolute;
 }
 
-.titulos{        
-	height: 45px;
-	position: relative;
-	border-bottom: 0.5px solid #dbdada;
+.fotos2{
+	top: 150px;
+	left: 1373px;
+	width: 400px;
+	position: absolute;
+}
+.fotos3{
+	top: 428px;
+	left: 955px;
+	width: 819px;
+	position: absolute;
 }
 
-#galeria{
-	margin-top: 4%;
-	height: auto;
-	position: relative;
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	
+}
+.row{
+	top:720px;	
+	position: absolute;
+	left:150px;
 }
 
-.fotos{
-    margin-bottom: 40px;
-    
-	position: relative;
+.textocasa{
+	top:664px;	
+	position: absolute;
+	left:150px;
+	
 }
 
 img, p , h2{
@@ -129,17 +153,9 @@ img,p, h2{
     float: left;
 }
   
-.textorep{
-    width: 500px; 
-    height: 200px; 
-    margin-top:0px;
-    margin-left: 350px;
-}
-.textorep h2{
-    margin: 0;
-}
+
 input[type=submit] {
-	background-color: #000000;
+	background-color:#009b7c;
 	color: white;
 	padding: 12px 0px;
 	border: none;
@@ -157,9 +173,9 @@ input[type=submit] {
 
 /* div rodapé */
 ul.rodape {
-  	list-style-type:none;
-  	position: absolute;
-  	top: 2200px;
+	list-style-type:none;
+	position: absolute;
+	top: 1080px;
 	bottom:0;
 	margin: 0;
 	padding: 0;
@@ -180,7 +196,7 @@ li.rodape {
 	text-decoration: none;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 850px) {
 	ul.topnav .menu{
 	  display: block;
 	}
